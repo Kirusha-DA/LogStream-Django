@@ -1,0 +1,11 @@
+{% extends "newssite/base.html" %}
+
+{% block content %}
+{% for blog in blog_list %}
+    <div>
+        <h2><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2>
+        <p>description: {{ blog.description }}</p>
+        <p>author: {{ blog.author.username }}</p>
+    </div>
+{% endfor %}
+{% endblock content %}

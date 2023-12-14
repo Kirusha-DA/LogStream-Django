@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Django News</title>
+    </head>
+    {% if user.is_authenticated %}
+        <p> Hi {{ user.username }}!</p>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+        </form>
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a> |
+        <a href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
+    <body>
+        <header>
+            <h1><a href="{% url 'news' %}">recent news</a></h1>
+            <h1><a href="{% url 'blogs' %}">blogs</a></h1>
+        </header>
+    </body>
+    <div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+</html>
