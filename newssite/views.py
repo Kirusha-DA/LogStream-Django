@@ -23,7 +23,7 @@ class NewsCreateView(LoginRequiredMixin,UserPassesTestMixin, CreateView):
         return super().form_valid(form)
 
     def test_func(self):
-        return self.request.user.username == "admin"
+        return self.request.user.is_superuser
 
 
 class NewsUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
