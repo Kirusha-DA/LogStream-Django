@@ -11,6 +11,7 @@ class NewsListView(ListView):
     model = News
     paginate_by = 5
     template_name = "newssite/news/list.html"
+    ordering = ["-created"]
 
 
 class NewsCreateView(LoginRequiredMixin,UserPassesTestMixin, CreateView):
