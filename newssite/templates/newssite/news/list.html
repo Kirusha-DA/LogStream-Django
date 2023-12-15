@@ -9,6 +9,7 @@
         <p>{{ news.text }}</p>
         <img src="{{ newssite.image.url }}" alt="{{ newssite.title }}">
         <p><a href="{{ news.blog.get_absolute_url }}">blog: {{ news.blog.title }}</a></p>
+        <p> created by {{ news.blog.author }}
         <p><a href="{% url 'edit_news' news.pk %}">Edit news</a></p>
     </div>
 {% endfor %}
