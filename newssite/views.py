@@ -23,7 +23,6 @@ class NewsCreateView(LoginRequiredMixin,UserPassesTestMixin, CreateView):
         return super().form_valid(form)
 
     def test_func(self):
-        obj = self.get_object()
         return self.request.user.username == "admin"
 
 
